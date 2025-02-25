@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/header.html' %}
+
+    <div class="flex flex-1">
+        {% include 'components/studentSidebar.html' %}
+
+        <main class="ml-64 flex-1 p-8 bg-white top-2 min-h-[calc(100vh-100px)] pt-[102px]">
+            <div class="bg-[#D9D9D9] p-6 shadow-md rounded-lg">
+                <h2 class="text-xl font-bold">WELCOME, {{ student_name }}!</h2> <br><br>
+                <p class="text-black font-semibold mt-2">TAKE PART IN THIS <br>SURVEY!</p>
+                <hr class="my-4 border-black">
+                
+                <div class="flex justify-between items-center p-4 shadow-md rounded-md">
+                    <div class="flex items-center">
+                        <p class="font-semibold">CAREER INTEREST PREDICTION SURVEY</p>
+                    </div>
+                    <a href="https://forms.gle/3KFn6gQyzn3LdBGA8?usp=pp_url&entry.123456789={{ student_exam_id }}" target="_blank" class="bg-[#166D3B] text-white px-4 py-2 rounded-md hover:bg-green-700">
+                        View Details
+                    </a>                    
+                </div>
+            </div>
+        </main>
+    </div>
+    {% include 'components/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="./output.css" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const circle = document.getElementById("profileCircle");
+            const logoutMenu = document.getElementById("logoutMenu");
+
+            circle.addEventListener("click", function (event) {
+                event.stopPropagation(); 
+                logoutMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!circle.contains(event.target) && !logoutMenu.contains(event.target)) {
+                    logoutMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="flex justify-end pb-1 relative">
+        <div id="profileCircle" class="cursor-pointer fixed w-14 h-14 bg-gray-300 rounded-full flex items-center justify-center">
+            👤
+        </div>
+
+        <div id="logoutMenu" class="absolute right-0 mt-16  bg-white shadow-lg rounded-md hidden">
+            <a href="{{ url_for('admin_login') }}" 
+               class="block px-2 py-0.5 bg-red-500  text-white rounded-md hover:bg-red-600 transition">
+                Logout
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    
+    {% include 'components/header.html' %}
+    <br>
+    <br>
+    <div class="bg-[#EEEDED] p-16 rounded-lg shadow-lg w-1/2 flex flex-col justify-center items-center mx-auto my-auto mt-20 ">
+        <div>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16">
+        </div>       
+        <h2 class="text-2xl font-bold text-center text-black mb-6">Log In to access your Account</h2>
+        
+        <form action="/student_login" method="POST" class="w-full">
+            <div class="mb-4">
+                <label for="exam_id" class="block text-[#166D3B]">Examination ID</label>
+                <input type="text" name="exam_id" id="exam_id" class="w-full p-2 border border-black rounded-md" required>
+                <label for="password" class="block text-[#166D3B]"> Password </label>
+                <input type="password" name="password" id="password" class="w-full p-2 border border-black rounded-md" required>
+            </div>
+            <button type="submit" class="bg-[#166D3B] text-white w-full p-2 rounded-md mt-10 font-[Liter] font-light tracking-widest">Login</button>
+        </form>
+    </div>
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

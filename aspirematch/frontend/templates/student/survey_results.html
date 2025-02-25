@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/header.html' %}
+
+    <div class="flex flex-1">
+        {% include 'components/studentSidebar.html' %}
+
+        <main class="ml-64 flex-1 p-8 bg-white top-2 min-h-[calc(100vh-100px)] pt-[102px]">
+            <div class="bg-[#D9D9D9] p-6 shadow-md rounded-lg">
+                <h2 class="text-xl font-bold">Survey Results</h2>
+                <p class="text-black font-semibold mt-2">Here are your survey results.</p>
+                <hr class="my-4 border-black">
+
+                {% if student_results %}
+                    <table class="table-auto w-full border-collapse border border-gray-800">
+                        <thead>
+                            <tr class="bg-gray-300">
+                                <th class="border border-gray-800 px-4 py-2">Exam ID</th>
+                                <th class="border border-gray-800 px-4 py-2">First Name</th>
+                                <th class="border border-gray-800 px-4 py-2">Middle Name</th>
+                                <th class="border border-gray-800 px-4 py-2">Last Name</th>
+                                <th class="border border-gray-800 px-4 py-2">Preferred Program</th>
+                                {% for i in range(1, 11) %}
+                                    <th class="border border-gray-800 px-4 py-2">Question {{ i }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-800 px-4 py-2">{{ student_results.exam_id }}</td>
+                                <td class="border border-gray-800 px-4 py-2">{{ student_results.first_name }}</td>
+                                <td class="border border-gray-800 px-4 py-2">{{ student_results.middle_name }}</td>
+                                <td class="border border-gray-800 px-4 py-2">{{ student_results.last_name }}</td>
+                                <td class="border border-gray-800 px-4 py-2">{{ student_results.preferred_program }}</td>
+                                {% for answer in student_results.answers %}
+                                    <td class="border border-gray-800 px-4 py-2">{{ answer }}</td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mt-6  p-4 shadow-md rounded-lg border border-gray-300">
+                        <h3 class="text-lg font-bold text-gray-900">Top 3 Most Chosen Letters</h3>
+                        <p class="mt-2 text-gray-700 text-lg">
+                            {% if student_results.top_chosen_letters %}
+                                <span class="font-semibold ">{{ student_results.top_chosen_letters }}</span>
+                            {% else %}
+                                No answers recorded.
+                            {% endif %}
+                        </p>
+                    </div>
+
+                {% else %}
+                    <p class="text-red-500">No survey results found.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+    
+    {% include 'components/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/header.html' %}
+
+    <div class="flex flex-1">
+            {% include 'components/studentSidebar.html' %}
+
+        <main class="ml-64 flex-1 p-8 bg-white top-2 min-h-[calc(100vh-100px)] pt-[102px]">
+            <div class=" p-8 bg-[#D9D9D9] rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold flex items-center space-x-2">
+                    Edit Profile
+                </h2>
+
+                <div class="flex justify-center mt-6 mb-4 relative">
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                        👤
+                    </div>
+                </div>
+                <form action="/profile" method="POST">
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700">First Name</label>
+                            <input type="text" name="first_name" value="{{ student.first_name }}" class="w-full p-2 border border-gray-300 bg-white rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Middle Name</label>
+                            <input type="text" name="middle_name" value="{{ student.middle_name }}" class="w-full p-2 border border-gray-300 bg-white rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Last Name</label>
+                            <input type="text" name="last_name" value="{{ student.last_name }}" class="w-full p-2 border border-gray-300 bg-white rounded-md">
+                        </div>
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Password</label>
+                        <input type="text" name="password" value="{{ student.password }}" class="w-full p-2 border border-gray-300 bg-white rounded-md">
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Email Address</label>
+                        <input type="email" name="email" value="{{ student.email }}" class="w-full p-2 border border-gray-300 bg-white rounded-md">
+                    </div>
+                
+                    <button type="submit" class="bg-[#166D3B] text-white py-2 px-6 rounded-lg hover:bg-green-800">
+                        Save Changes
+                    </button>
+                </form>                                            
+            </div>
+        </main>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

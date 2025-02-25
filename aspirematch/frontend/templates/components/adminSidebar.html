@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+    <aside class="w-64 bg-[#EEEDED] text-black fixed top-[102px] left-0 h-[calc(92vh-100px)] overflow-y-auto">
+        <div class="p-4 text-center text-2xl font-bold">AspireMatch</div>
+        <nav class="mt-4">
+            <ul class="space-y-3">
+                <li class="p-2 hover:bg-gray-300"><a href="/dashboard">DASHBOARD</a></li>
+                <li class="p-2 hover:bg-gray-300"><a href="/view_respondent">VIEW RESPONDENTS</a></li>
+                <li class="p-2 hover:bg-gray-300"><a href="/student_list">STUDENT LIST</a></li>
+                <li class="p-2 hover:bg-gray-300"><a href="/add_admin">ADMINISTRATORS</a></li>
+                <li class="p-2 hover:bg-gray-300"><a href="#">DECISION SUPPORT</a></li>
+            </ul>
+        </nav>
+
+        <div id="mainButtonContainer" class="p-4 mt-4 border-t">
+            <button id="mainButton" onclick="showOptions()" class="bg-[#166D3B] text-white p-2 rounded w-full hover:bg-green-700">
+                Add/Upload Student
+            </button>
+        </div>
+    
+        <div id="options" class="hidden p-4 mt-2 space-y-2">
+            <button onclick="window.location.href='/add_participant'" 
+                class="bg-[#166D3B] text-white p-2 rounded w-full hover:bg-green-700">
+                Add Manually
+            </button>
+            <button onclick="showUploadSection()" 
+                class="bg-[#166D3B] text-white p-2 rounded w-full hover:bg-green-700">
+                Upload from Excel
+            </button>
+        </div>
+    
+        <div id="uploadSection" class="p-4 mt-2 border-t hidden">
+            <h2 class="text-lg font-semibold">Upload Excel File</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".xlsx, .xls" class="border p-2 rounded w-full">
+                <button type="submit" class="bg-[#166D3B] text-white p-2 rounded w-full mt-2 hover:bg-green-700">
+                    Upload
+                </button>
+            </form>
+        </div>
+    </aside>
+    
+    <script>
+        function showOptions() {
+            document.getElementById("mainButtonContainer").classList.add("hidden");
+            document.getElementById("options").classList.remove("hidden");
+        }
+    
+        function showUploadSection() {
+            document.getElementById("mainButtonContainer").classList.add("hidden");
+            document.getElementById("options").classList.add("hidden");
+            document.getElementById("uploadSection").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>

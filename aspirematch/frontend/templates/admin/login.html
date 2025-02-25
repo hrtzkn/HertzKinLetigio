@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+    
+    {% include 'components/header.html' %}
+
+    <div class="flex-grow flex flex-col justify-center items-center">
+        <div class="bg-[#EEEDED] p-16 rounded-lg shadow-lg w-1/2 flex flex-col items-center">
+            <div>
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16">
+            </div>                  
+            <h2 class="text-2xl font-bold text-center text-black mb-6">Log In to access your Account</h2>
+
+            <form action="{{ url_for('login') }}" method="POST" class="w-full">
+                {% if error %}
+                <div class="text-red-600 text-sm font-bold mb-2 text-center">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <div class="mb-4">
+                    <label for="username" class="block text-[#166D3B]">Username</label>
+                    <input type="text" name="username" id="username" class="w-full p-2 border border-black rounded-md" required>
+                    
+                    <label for="password" class="block text-[#166D3B] mt-2">Password</label>
+                    <input type="password" name="password" id="password" class="w-full p-2 border border-black rounded-md" required>
+                </div>
+                <button type="submit" class="bg-[#166D3B] text-white w-full p-2 rounded-md mt-6 font-light tracking-widest">Login</button>
+            </form>           
+        </div>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

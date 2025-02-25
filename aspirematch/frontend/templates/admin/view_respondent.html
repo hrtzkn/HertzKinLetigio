@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respondents</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/header.html' %}
+
+    <div class="flex flex-1">
+
+        {% include 'components/adminSidebar.html' %}
+
+        <main class="ml-64 flex-1 p-8 bg-white min-h-[calc(100vh-160px)] overflow-y-auto pt-[102px]">
+            {% include 'components/admin.html' %}
+            <div class="bg-white p-8 rounded-lg w-full max-w-5xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 flex items-center"> Student List</h2> <br>
+
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="text-left">
+                            <th class="p-4">Student Name</th>
+                            <th class="p-4">Preferred Program</th>
+                            <th class="p-4">Predicted Program</th>
+                            <th class="p-4">Interview</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td class="p-4">{{ student.full_name }}</td>
+                            <td class="p-4">{{ student.preferred_program }}</td> 
+                            <td class="p-4">{{ student.predicted_program }}</td>
+                            <td class="p-4">
+                                <button class="px-4 py-2 bg-green-700 text-white rounded">Add Schedule</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>                   
+                </table>
+            </div>
+        </main>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

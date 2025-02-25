@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Liter&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-[#166D3B] p-6 h-24 flex fixed items-center w-full">
+        <div class="flex justify-start items-center space-x-4 w-full">
+            <div>
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16">
+            </div>
+    
+            <div class="flex flex-col space-y-1">
+                <p class="text-white text-lg font-semibold">Central Philippines State University</p>
+                <p class="text-white text-lg font-semibold">DJVV Campus</p>
+                <p class="text-white text-sm font-light">So. Mabuni, Brgy. Guadalupe, San Carlos City, Negros Occidental</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

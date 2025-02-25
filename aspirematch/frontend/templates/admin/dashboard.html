@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+    {% include 'components/header.html' %}
+    <div class="flex flex-1">
+        {% include 'components/adminSidebar.html' %}
+        <main class="ml-64 flex-1 p-8 bg-white top-2 min-h-[calc(100vh-100px)] pt-[102px]">
+            {% include 'components/admin.html' %}
+            <div class="bg-[#F5F5F5] p-6 shadow-md rounded-lg mb-6 flex justify-between items-center">
+                <div>
+                    <p class="text-xl font-semibold">Hello, {{ user_id }}!</p>
+                    <p class="text-black">Today is another day of work!</p>
+                </div>              
+            </div>
+        </main>        
+    </div>
+    {% include 'components/footer.html' %}
+</body>
+</html>

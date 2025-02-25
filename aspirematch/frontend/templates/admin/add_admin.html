@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/header.html' %}
+
+    <div class="flex flex-1">
+
+        {% include 'components/adminSidebar.html' %}
+
+        <main class="ml-64 flex-1 p-8 bg-white min-h-[calc(100vh-160px)] overflow-y-auto pt-[102px]">
+            {% include 'components/admin.html' %}
+            <div class="bg-white p-8 rounded-lg  w-full max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6">Add Administrator</h2>
+
+                <form action="/add_admin" method="POST">
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700">First Name</label>
+                            <input type="text" name="first_name" required class="w-full p-2 border border-gray-300 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Middle Name</label>
+                            <input type="text" name="middle_name" required class="w-full p-2 border border-gray-300 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Last Name</label>
+                            <input type="text" name="last_name" required class="w-full p-2 border border-gray-300 bg-gray-100">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700">Username</label>
+                            <input type="text" name="user_id" required class="w-full p-2 border border-gray-300 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Email Address</label>
+                            <input type="email" name="email" required class="w-full p-2 border border-gray-300 bg-gray-100">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700">Password</label>
+                            <input type="password" name="password" required class="w-full p-2 border border-gray-30 bg-gray-100">
+                        </div>
+                    </div>
+
+                    {% if error %}
+                    <div class="text-red-600 font-semibold text-center mb-4">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+
+                    <button type="submit" class="bg-[#166D3B] text-white py-2 px-6 rounded-lg hover:bg-green-700 text-sm font-semibold mt-4">
+                        Add Administrator
+                    </button>
+                </form>
+                {% if session['admin'] == 'hk' %}
+<div class="mt-8">
+    <h2 class="text-xl font-bold mb-4">All Administrators</h2>
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr>
+                <th class="border px-4 py-2">First Name</th>
+                <th class="border px-4 py-2">Middle Name</th>
+                <th class="border px-4 py-2">Last Name</th>
+                <th class="border px-4 py-2">Username</th>
+                <th class="border px-4 py-2">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in admins %}
+            <tr>
+                <td class="border px-4 py-2">{{ admin[0] }}</td>
+                <td class="border px-4 py-2">{{ admin[1] }}</td>
+                <td class="border px-4 py-2">{{ admin[2] }}</td>
+                <td class="border px-4 py-2">{{ admin[3] }}</td>
+                <td class="border px-4 py-2">{{ admin[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+            </div>
+        </main>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+</body>
+</html>
