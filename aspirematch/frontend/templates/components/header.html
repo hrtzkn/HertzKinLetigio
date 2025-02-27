@@ -7,20 +7,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Liter&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Didact+Gothic&family=Jost:ital,wght@0,100..900;1,100..900&family=Marcellus&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+
 </head>
 <body>
-    <div class="bg-[#166D3B] p-6 h-24 flex fixed items-center w-full">
+    <div class="bg-[#166D3B] p-10 h-28 flex fixed items-center w-full">
         <div class="flex justify-start items-center space-x-4 w-full">
             <div>
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16">
+                <img src="{{ url_for('static', filename='images/cpsu_logo.png') }}" alt="Logo" class="h-24">
             </div>
     
             <div class="flex flex-col space-y-1">
-                <p class="text-white text-lg font-semibold">Central Philippines State University</p>
-                <p class="text-white text-lg font-semibold">DJVV Campus</p>
-                <p class="text-white text-sm font-light">So. Mabuni, Brgy. Guadalupe, San Carlos City, Negros Occidental</p>
+                <p class="text-white text-2xl font-semibold font-[Poppins] tracking-widest">Central Philippines State University DJVV Campus</p>
+             
+                <p class="text-white text-md font-light font-[Montserrat] tracking-wide">So. Mabuni, Brgy. Guadalupe, San Carlos City, Negros Occidental</p>
             </div>
         </div>
     </div>

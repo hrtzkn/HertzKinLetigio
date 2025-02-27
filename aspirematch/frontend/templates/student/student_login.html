@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Student Login</title>
     <link href="./output.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+
+    <!--for fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Didact+Gothic&family=Jost:ital,wght@0,100..900;1,100..900&family=Marcellus&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+
 </head>
 <body class="flex flex-col min-h-screen">
 
@@ -13,20 +20,21 @@
     {% include 'components/header.html' %}
     <br>
     <br>
-    <div class="bg-[#EEEDED] p-16 rounded-lg shadow-lg w-1/2 flex flex-col justify-center items-center mx-auto my-auto mt-20 ">
+    <div class="bg-[#E9EFEC] p-18 rounded-lg shadow-lg w-1/2 flex flex-col justify-center items-center mx-auto my-auto mt-20">
         <div>
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16">
         </div>       
-        <h2 class="text-2xl font-bold text-center text-black mb-6">Log In to access your Account</h2>
+
+        <h2 class="text-3xl font-bold text-center text-black mb-6 font-[Poppins]">Log In to access your Account</h2>
         
         <form action="/student_login" method="POST" class="w-full">
-            <div class="mb-4">
-                <label for="exam_id" class="block text-[#166D3B]">Examination ID</label>
-                <input type="text" name="exam_id" id="exam_id" class="w-full p-2 border border-black rounded-md" required>
-                <label for="password" class="block text-[#166D3B]"> Password </label>
-                <input type="password" name="password" id="password" class="w-full p-2 border border-black rounded-md" required>
+            <div class="mb-4 space-y-2">
+                <label for="exam_id" class="block text-black font-[Montserrat] tracking-wider text-sm font-semibold">Examination ID</label>
+                <input type="text" name="exam_id" id="exam_id" class="w-full p-3 border  border-black rounded-md" required>
+                <label for="password" class="block text-black font-[Montserrat] tracking-wider text-sm font-semibold"> Password </label>
+                <input type="password" name="password" id="password" class="w-full p-3 border border-black rounded-md" required>
             </div>
-            <button type="submit" class="bg-[#166D3B] text-white w-full p-2 rounded-md mt-10 font-[Liter] font-light tracking-widest">Login</button>
+            <button type="submit" class="LOGIN_BTN">Login</button>
         </form>
     </div>
     {% include 'components/footer.html' %}

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.LOGIN_BTN {
+    @apply bg-[#166D3B] text-white w-full p-4 rounded-md mt-10 font-[Poppins] text-lg tracking-widest font-bold; 
+}
+
+.LOGIN_BTN:hover {
+    @apply bg-black text-white;
+}
